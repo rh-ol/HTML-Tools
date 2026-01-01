@@ -1,67 +1,27 @@
-/* MISSION CONTROL - ENTERPRISE STYLE GUIDE
-   Version: 1.0 (Git Hosted)
-*/
-
+/* MISSION CONTROL - STYLE GUIDE */
 :root {
-    --mc-bg-dark:       #1e1e1e;
-    --mc-bg-panel:      #252526;
-    --mc-border:        #3e3e42;
-    --mc-primary:       #007acc;
-    --mc-primary-hover: #0098ff;
-    --mc-text-main:     #d4d4d4;
-    --mc-dock-width:    50px;
-    --mc-dock-expand:   250px;
-    --mc-z-index:       99999;
+    --mc-bg-dark: #1e1e1e; --mc-bg-panel: #252526; --mc-border: #3e3e42;
+    --mc-primary: #007acc; --mc-text-main: #d4d4d4;
+    --mc-dock-width: 50px; --mc-dock-expand: 260px; --mc-z-index: 99999;
 }
-
-/* --- DOCK CONTAINER --- */
 #mc-dock-container {
-    position: fixed; top: 0; right: 0; height: 100vh;
-    width: var(--mc-dock-width);
-    background-color: var(--mc-bg-dark);
-    border-left: 1px solid var(--mc-border);
-    z-index: var(--mc-z-index);
-    transition: width 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-    display: flex; flex-direction: column; overflow: hidden;
-    font-family: 'Segoe UI', sans-serif; font-size: 13px;
+    position: fixed; top: 0; right: 0; height: 100vh; width: var(--mc-dock-width);
+    background: var(--mc-bg-dark); border-left: 1px solid var(--mc-border);
+    z-index: var(--mc-z-index); transition: width 0.3s; display: flex; flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.5); font-family: 'Segoe UI', sans-serif; font-size: 13px;
 }
 #mc-dock-container:hover { width: var(--mc-dock-expand); }
-
-/* --- HEADER --- */
 .mc-header {
-    height: 50px; background-color: var(--mc-primary); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: bold; white-space: nowrap; overflow: hidden; cursor: default;
+    height: 50px; background: var(--mc-primary); color: white;
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
+    white-space: nowrap; overflow: hidden; cursor: default;
 }
 #mc-dock-container:hover .mc-header { justify-content: flex-start; padding-left: 15px; }
-
-/* --- ITEMS --- */
 .mc-tool-item {
-    display: flex; align-items: center; height: 45px;
-    color: var(--mc-text-main); cursor: pointer;
-    border-bottom: 1px solid var(--mc-border); transition: background 0.2s;
+    display: flex; align-items: center; height: 45px; color: var(--mc-text-main);
+    cursor: pointer; border-bottom: 1px solid var(--mc-border); transition: 0.2s;
 }
-.mc-tool-item:hover { background-color: var(--mc-bg-panel); color: var(--mc-primary-hover); }
-
+.mc-tool-item:hover { background: var(--mc-bg-panel); color: #fff; }
 .mc-icon { width: var(--mc-dock-width); text-align: center; font-size: 18px; flex-shrink: 0; }
 .mc-label { opacity: 0; transition: opacity 0.2s 0.1s; white-space: nowrap; }
 #mc-dock-container:hover .mc-label { opacity: 1; }
-
-/* --- WINDOWS --- */
-.mc-window {
-    position: fixed; top: 50px; right: var(--mc-dock-expand);
-    width: 350px; background-color: var(--mc-bg-dark);
-    border: 1px solid var(--mc-border); border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5); color: var(--mc-text-main);
-    z-index: var(--mc-z-index); display: none; padding: 15px;
-}
-.mc-window.active { display: block; }
-.mc-window h3 { margin-top: 0; border-bottom: 1px solid var(--mc-primary); padding-bottom: 8px; color: var(--mc-primary); }
-
-.mc-btn {
-    width: 100%; padding: 8px; margin-top: 10px;
-    background-color: var(--mc-bg-panel); border: 1px solid var(--mc-border);
-    color: var(--mc-text-main); border-radius: 4px; cursor: pointer; text-align: left;
-}
-.mc-btn:hover { background-color: var(--mc-primary); color: white; border-color: var(--mc-primary); }
